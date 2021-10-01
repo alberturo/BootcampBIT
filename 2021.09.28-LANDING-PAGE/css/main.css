@@ -1,0 +1,28 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@700&display=swap');
+/* Atma Bold - Titulo1
+font-family: 'Atma', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@700&display=swap');
+/* Baloo Thambi - Titulo 2 
+font-family: 'Baloo Thambi 2', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+/* Sniglet - Body 
+font-family: 'Sniglet', cursive; */
+
+/* .banner-image{
+    background-image: url('img/banner.jpeg');
+    background-size: cover;
+} */
+
+.title-banner h1{
+    font-family: 'Atma', cursive;
+    font-size: 5.5rem;
+}
+
+.title-banner p{
+    font-family: 'Baloo Thambi 2', cursive;
+    font-size: 3rem;
+    color: #ffffff;
+}
