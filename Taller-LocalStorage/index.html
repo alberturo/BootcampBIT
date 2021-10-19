@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <title>Fresco</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+        body {
+            background-color: #FEC3A6;
+        }
+
+        .header {
+            background-color: #CDEAC0;
+            width: 100vw;
+            height: 80px;
+            font-size: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: 'Architects Daughter', cursive;
+        }
+
+        .icon {
+            margin-left: 20px;
+        }
+
+        .header p {
+            margin: 0px;
+        }
+
+        .header__p {
+            text-align: end;
+            font-size: 30px;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+
+        .header__p p {
+            margin: 0px;
+        }
+
+        .agrega_todo {
+            border-radius: 15px;
+            padding: 10px;
+            width: 100%;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .img-size {
+            width: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <i class="fas fa-carrot icon"></i>
+        <p>FRESCO</p>
+    </header>
+
+    <div class="header__p bg-dark">
+        <p>Carrito de Productos</p>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-shopping"
+            class="svg-inline--fa fa-cart-shopping img-size" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512">
+            <path fill="currentColor"
+                d="M463.1 416c-26.51 0-47.1 21.49-47.1 48s21.49 48 47.1 48s47.1-21.49 47.1-48S490.5 416 463.1 416zM175.1 416c-26.51 0-47.1 21.49-47.1 48S149.5 512 175.1 512s47.1-21.49 47.1-48S202.5 416 175.1 416zM569.5 44.73c-6.109-8.094-15.42-12.73-25.56-12.73H121.1L119.6 19.51C117.4 8.19 107.5 0 96 0H23.1C10.75 0 0 10.75 0 23.1S10.75 48 23.1 48h52.14l60.28 316.5C138.6 375.8 148.5 384 160 384H488c13.25 0 24-10.75 24-23.1C512 346.7 501.3 336 488 336H179.9L170.7 288h318.4c14.29 0 26.84-9.47 30.77-23.21l54.86-191.1C577.5 63.05 575.6 52.83 569.5 44.73z">
+            </path>
+        </svg>
+    </div>
+
+    <!-- Tabla -->
+    <form action="" id="form">
+        <table class="table table-warning">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio[Libra]</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Banano</td>
+                    <td>US$ 1.2</td>
+                    <td>
+                        <input type="number" placeholder="$" id="banano_cantidad">
+                    </td>
+                    <td id="p_banano">$</td>
+                    <!--Imprime precio de banano -->
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Piña</td>
+                    <td>US$ 0.8</td>
+                    <td>
+                        <input type="number" placeholder="$" id="pina_cantidad">
+                    </td>
+                    <td id="p_pina">$</td>
+                    <!--Imprime precio de Pina -->
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Uvas</td>
+                    <td>US$ 3.5</td>
+                    <td>
+                        <input type="number" placeholder="$" id="uvas_cantidad">
+                    </td>
+                    <td id="p_uvas">$</td>
+                    <!--Imprime precio de Uvas -->
+                </tr>
+            </tbody>
+        </table>
+        <button class="agrega_todo bg-dark" type="button" id="add_carrito" onclick="addcar()">Agregar Todo</button>
+    </form>
+
+    <script>
+        // Onclick
+        function addcar() {
+            var cant_banano = document.querySelector("#banano_cantidad").value
+            var cant_pina = document.querySelector("#pina_cantidad").value
+            var cant_uvas = document.querySelector("#uvas_cantidad").value
+
+            console.log(cant_banano, cant_pina, cant_uvas)
+
+            localStorage.setItem("Cant_Banano", cant_banano)
+            localStorage.setItem("Cant_Pina", cant_pina)
+            localStorage.setItem("Cant_Uvas", cant_uvas)
+
+            imprimePrecio()
+        }
+
+        function imprimePrecio() {
+
+            var precio_banano = (parseInt(localStorage.getItem("Cant_Banano")) * 1.2)
+            var precio_pina = (parseInt(localStorage.getItem("Cant_Pina")) * 0.8)
+            var precio_uvas = (parseInt(localStorage.getItem("Cant_Uvas")) * 3.5)
+
+            console.log(precio_banano)
+
+            //como imprimir el precio en td.append(precio_banano)
+            var td_banano = document.querySelector("#p_banano")
+            td_banano.innerHTML = "$" + precio_banano
+
+            var td_pina = document.querySelector("#p_pina")
+            td_pina.innerHTML = "$" + precio_pina
+
+            var td_uvas = document.querySelector("#p_uvas")
+            td_uvas.innerHTML = "$" + precio_uvas
+        }
+
+    </script>
+</body>
